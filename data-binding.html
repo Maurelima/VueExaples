@@ -7,12 +7,33 @@
 </head>
 <body>
 
+    <div id="data_binding">
+
+        <h1 v-bind:title="tagMessage"> {{ message }} </h1>
+
+        <h2> Essa mensagem com letras garrafais seria assim {{ message.toUpperCase() }} </h2>
+
+        <p>Meu nome é {{ person.name }}. Tenho {{ person.age }} </p>
+
+        <span v-html="tag"></span>
+
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
     
     <script>
 
         let app = new Vue({
-            
+            el: '#data_binding',
+            data: {
+                message: 'Mensagem para ser exibida',
+                person:{
+                    name: 'Marco',
+                    age: '22'
+                },
+                tag: '<button>Clique Aqui</button>',
+                tagMessage: 'Essa é uma tag de titulo'
+            }
         })
         
     </script>
